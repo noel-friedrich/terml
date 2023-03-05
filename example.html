@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Terml Example</title>
+
+        <!-- include terml.js anywhere -->
+        <script src="terml.js"></script>
+    </head>
+
+    <body>
+        <h1><terml>
+            REPEAT 3
+                OUT "test "
+        </terml></h1>
+
+        <pre><terml>
+            DEF "PRINTLN" "n"
+                OUT n
+                OUT "\n"
+
+            DEF "FIBONACCI" "n"
+                NEW "a" 0
+                NEW "b" 1
+                REPEAT n
+                    PRINTLN a
+                    PRINTLN b
+                    NEW "c" 0
+                    ADD c a
+                    ADD c b
+                    ADD a b
+                    ADD b c
+            
+            FIBONACCI 10
+        </terml></pre>
+    </body>
+
+</html>
