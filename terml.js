@@ -132,7 +132,7 @@ class TermlToken {
 
 		if (numRegex.test(this.content)) {
 			this.isNumberLiteral = true
-			this.content = parseInt(this.content)
+			this.content = parseFloat(this.content)
 			let error = TermlVariable.getValueError(this.content)
 			if (error) throw error
 			return true
