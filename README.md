@@ -1,5 +1,6 @@
 # terml
-a really bad programming language for my terminal website
+a really bad programming language for my terminal website  
+> also, it doesn't use any dependencies
 
 ```terml
 DEF "PRINTLN" "n"
@@ -42,7 +43,53 @@ const output = Terml.run(code)
 
 ## why though?
 
-I wouldn't really recommend this language to anyone out there. I designed it as a fun exercise for myself and as a side project. Originally, I wanted to use this as an intermediate language for my [homepage](https://github.com/noel-friedrich/terminal), but it doesn't quite make that development easier in its current shape.  
+I wouldn't really recommend this language to anyone out there. I designed it as a fun exercise for myself and as a side project. Originally, I wanted to use this as an intermediate language for my [homepage](https://github.com/noel-friedrich/terminal), but it doesn't quite make that development easier in its current shape.
+
+## Inbuilt Functions
+
+| Function | Arguments | Descriptions |
+| -------- | --------- | ------------ |
+| \_\_GLOBAL\_\_ | | execute all substatements |
+| NEW | name; ?value | define new variable (number) |
+| NEW_LST | name; ?value | define new list (of numbers) |
+| PUSH | list; value | push a value to the end of a list |
+| POP | list; ?var | pop the last value of a list and put it's value into a given variable. Does nothing if list is empty |
+| SHIFT | list; ?var | pop the first value of a list and put it's value into a given variable |
+| UNSHIFT | list; value | push a value to the beginning of a list |
+| GET_AT | list; index; var | put a value from a list at an index into a var |
+| SET_AT | list; index; value | put a value into a list at given index |
+| INSERT_AT | name; value; index | insert a value into a list at an index |
+| DELETE_AT | list; index | delete a list item at a given index |
+| CONCAT | list1; list2 | combine the second list |
+| OUT_LST | list | output a list in it's numeric json format | 
+| SET | var; value | set the value of an existing variable |
+| OUT | value | output a value, no matter which type. Interprets lists as strings of characters with ASCII encoding |
+| IN | list | set list content as ascii encoded string of characters |
+| ADD | var; value | sum a variable with a value and store the result in the variable |
+| SUB | var; value | subtract a variable with a value and store the result in the variable |
+| MUL | var; value | multiply a variable with a value and store the result in the variable |
+| DIV | var; value | divide a variable with a value and store the result in the variable |
+| MOD | var; value | calculate modulus of variable in respect to value and store result in variable |
+| POW | var; value | calculate var to the power of the value and store result in variable |
+| ROUND | var | round a variable to the nearest integer |
+| SQRT | var | calculate square root of variable and store result in the same variable |
+| FLOOR | var | floor a variable to the next-lowest integer |
+| CEIL | var | ceil a variable to the next-highest integer |
+| DEF | name; ?args... | define a new function with given args |
+| IS_EQ | val1; val2; var | set var to 1 if val1=val2, else set it to 0 |
+| IS_LT | val1; val2; var | set var to 1 if val1 < val2, else set it to 0 |
+| IS_GT | val1; val2; var | set var to 1 if val1 > val2, else set it to 0 |
+| OR | val1; val2; var | set var to 1 if val1 or val2 is not equal to 0, else set it to 0 |
+| XOR | val1; val2; var | set var to 1 if either val1 or val2 is not equal to 0, else set it to 0 |
+| AND | val1; val2; var | set var to 1 if val1 and val2 are not equal to 0, else set it to 0 |
+| NOT | val; var | set var to 1 if val is not equal to zero, else set it to 0 |
+| IF | value | execute all substatements if value is not equal to zero |
+| IF_NOT | value | execute all substatements if value is equal to zero |
+| WHILE | value | execute all substatements while value is not equal to zero |
+| WHILE_NOT | value | execute all substatements while value is equal to zero |
+| REPEAT | value; ?name | execute all substatements for value times. If given a variable name, this variable will act as an iteration counter starting with 0 |
+
+*?something -> optional value*
 
 ## status
 
