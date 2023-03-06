@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Fun Terml Example</title>
+        <script src="../terml.js"></script>
+    </head>
+
+    <body>
+        <pre><terml>
+            DEF "OUT_AS_CHAR" "char"
+                NEW_LST "lst"
+                PUSH lst char
+                OUT lst
+
+            DEF "PRINT_LINE_SEP" "length"
+                REPEAT length "i"
+                    MOD i 4
+                    IF i
+                        OUT "-"
+                    IF_NOT i
+                        OUT "+"
+
+            PRINT_LINE_SEP 65
+            OUT "\n"
+            REPEAT 15 "i"
+                OUT "| "
+                ADD i 1
+                REPEAT 16 "j"
+                    NEW "char" 0
+                    ADD char i
+                    MUL char 16
+                    ADD char j
+                    OUT_AS_CHAR char
+                    OUT " | "
+                OUT "\n"
+                PRINT_LINE_SEP 65
+                OUT "\n"
+        </terml></pre>
+    </body>
+
+</html>

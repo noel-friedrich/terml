@@ -109,7 +109,7 @@ class TermlLiteral extends TermlValueObject {
 class TermlStringLiteral extends TermlLiteral {
 
 	constructor(value) {
-		super(value)
+		super(value.toString())
 	}
 
 	static fromArray(arr) {
@@ -787,16 +787,17 @@ const TermlStandardModule = new TermlModule("standard", [
 
 	new TermlFunction("DEF", [], [], (args, defStatement, runtime) => {
 		Terml.checkType(args[0], TermlStringLiteral)
-		let funcName = args[0].value
+		let funcName = args[0].stringValue
 		let funcArgs = args.slice(1)
 		Terml.checkType(funcArgs, funcArgs.map(() => TermlStringLiteral))
 
-		function jsFunc(args) {
+		function jsFunc(args, s) {
 			if (args.length !== funcArgs.length)
 				throw new TermlRuntimeNumArgumentsError()
 			Terml.checkType(args, args.map(() => TermlValueObject))
-			for (let i = 0; i < funcArgs.length; i++)
-				defStatement.container.setVariable(funcArgs[i].value, args[i].value)
+			for (let i = 0; i < funcArgs.length; i++) {
+				defStatement.container.setVariable(funcArgs[i].stringValue, args[i].value)
+			}
 			for (let substatement of defStatement.substatements) {
 				runtime.executeStatement(substatement)
 			}
