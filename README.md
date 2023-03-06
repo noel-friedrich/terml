@@ -89,7 +89,8 @@ I wouldn't really recommend this language to anyone out there. I designed it as 
 | WHILE_NOT | value | execute all substatements while value is equal to zero |
 | REPEAT | value; ?name | execute all substatements for value times. If given a variable name, this variable will act as an iteration counter starting with 0 |
 
-*?something -> optional value*
+*?something -> optional value*  
+> Variables and Lists are scoped to be only defined in current level of indentation and all substatements
 
 ## status
 
