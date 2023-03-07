@@ -2,7 +2,7 @@
 a really bad programming language for my terminal website  
 > also, it doesn't use any dependencies
 
-```terml
+```py
 DEF "PRINTLN" "n"
     OUT n
     OUT "\n"
@@ -91,6 +91,40 @@ I wouldn't really recommend this language to anyone out there. I designed it as 
 
 > *?something -> optional value*  
 > Variables and Lists are scoped to be only defined in current level of indentation and all substatements
+
+### defining functions
+
+```py
+
+# define a new function using the DEF function:
+DEF "HELLOWORLD"
+    OUT "Hello, World!\n"
+
+# call the new function
+HELLOWORLD
+
+# define a function with arguments
+DEF "WELCOME" "name"
+    OUT "Hello, "
+    OUT name
+    OUT "!\n"
+
+# call the new function with arguments
+WELCOME "noel"
+
+# by default, values are passed as copies
+# to pass by reference, begin variable name with &
+DEF "INCREMENT" "&n"
+    ADD n 1
+    
+# call the new function with a reference
+NEW "num" 0
+INCREMENT num
+INCREMENT num
+OUT num
+# prints 2
+
+```
 
 ## status
 
