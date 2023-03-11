@@ -88,6 +88,8 @@ I wouldn't really recommend this language to anyone out there. I designed it as 
 | WHILE | value | execute all substatements while value is not equal to zero |
 | WHILE_NOT | value | execute all substatements while value is equal to zero |
 | REPEAT | value; ?name | execute all substatements for value times. If given a variable name, this variable will act as an iteration counter starting with 0 |
+| EXEC_SUB | index | execute a substatement by index (numeric, 0 based). only avaible in function definitions |
+| LEN_SUB | var | set the var value to the length of substatements given to the function; only available in function definitions | 
 
 > *?something -> optional value*  
 > Variables and Lists are scoped to be only defined in current level of indentation and all substatements
@@ -124,6 +126,30 @@ INCREMENT num
 OUT num
 # prints 2
 
+```
+
+#### functions that execute substatements
+
+```py
+# substatements can be treated like additional
+# arguments which may be executed:
+
+DEF "REVERSE_EXECUTE"
+    # get sub statement length
+    NEW "n" 0
+    LEN_SUB n
+
+    # execute all substatements in reverse order
+    WHILE n
+        SUB n 1
+        EXEC_SUB n
+
+REVERSE_EXECUTE
+    OUT "Hello"
+    OUT " "
+    OUT "World"
+
+# outputs "World Hello"
 ```
 
 ## status
