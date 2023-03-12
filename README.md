@@ -1,6 +1,7 @@
 # terml
 a really bad programming language for my terminal website  
-> also, it doesn't use any dependencies
+> also, it doesn't use any dependencies  
+> try it out on [my website](https://noel-friedrich.de/terml/interactive/)
 
 ```py
 DEF "PRINTLN" "n"
